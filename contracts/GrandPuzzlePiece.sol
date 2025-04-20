@@ -52,6 +52,12 @@ contract GrandPuzzlePiece is ERC721, Ownable {
         return supply;
     }
 
+    function tokenURI(uint256 tokenId) public view override returns (string memory) {
+        _requireOwned(tokenId);
+
+        return string.concat(_baseURI(), name(), "_Shard.json");
+    }
+
     /**
      * @dev Sets the base URI for the token metadata.
      * @param _baseTokenURI The new base URI for the token metadata.
@@ -157,12 +163,12 @@ contract GrandPuzzlePiece is ERC721, Ownable {
     function _mintPuzzlePiece(address _recipient, bytes calldata _signature) internal
     {
         require(balanceOf(_recipient) == 0, "Recipient already minted!");
-        require(_hasValidSignature(_recipient, supply++, _signature), "Not authorized!");
+        require(_hasValidSignature(_recipient, supply, _signature), "Not authorized!");
         require(msg.value >= mint_fee, "Not enough fee for minting!");
         require(_recipient != address(0), "Recipient cannot be zero address!");
 
         _mint(_recipient, supply);
-        
+        supply++;
         emit FinishedMission(_recipient, symbol());
     }
 

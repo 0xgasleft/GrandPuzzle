@@ -227,3 +227,19 @@ task("withdraw", "Withdraws the contract balance")
     console.log(`Balance of recipient: ${ethers.formatEther(balance)}`);
 
   });
+
+task("generate-signature", "Generates a signature for a given address and supply")
+  .addParam("recipient", "The recipient address")
+  .addParam("supply", "The supply number")
+  .setAction(async ({ recipient, supply }, hre) => {
+
+    const [deployer] = await hre.ethers.getSigners();
+
+
+    console.log(`Using signer: ${deployer.address}`);
+    console.log(`Generating signature for: ${recipient} with supply: ${supply}`);
+
+    const signature = await generateSignature(deployer, recipient, supply);
+    console.log(`Signature: ${signature}`);
+
+  });

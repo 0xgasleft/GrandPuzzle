@@ -4,9 +4,9 @@
 const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
 const { ethers } = require("hardhat");
 
-const PIECE_NAME = "Piece1";
-const PIECE_SYMBOL = "PC1";
-const MINT_FEE = "0.001";
+const PIECE_NAME = "Molandaks";
+const PIECE_SYMBOL = "MLDK";
+const MINT_FEE = "0.1";
 const WHITELIST = [];
 
 
