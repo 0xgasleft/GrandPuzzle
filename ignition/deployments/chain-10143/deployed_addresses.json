@@ -1,3 +1,11 @@
 {
-  "DeployPuzzlePiece#GrandPuzzlePiece": "0x32c25465e9f4b198163F474942007AFcE9ceeff9"
+  "DeployPuzzlePiece#GrandPuzzlePiece": "0x32c25465e9f4b198163F474942007AFcE9ceeff9",
+  "DeployPuzzlePieces#GrandPuzzlePiece": "0x1c888c9BA67605b0BF94dAD19fcE3b319C14e3D6",
+  "DeployPuzzlePieces#GrandPuzzlePiece_CND": "0x565325eF8a36B5e0Aa9A92c69F93A425938382CC",
+  "DeployPuzzlePieces#GrandPuzzlePiece_CNZ": "0xD09327D736249e786220673a8df0aE2F38270735",
+  "DeployPuzzlePieces#GrandPuzzlePiece_MDN": "0x554D87217F6818C8A47a3C0Ec348c6d888CE5985",
+  "DeployPuzzlePieces#GrandPuzzlePiece_MND": "0xDbD9C74F496281E4bb30AB257ba735073F808E7a",
+  "DeployPuzzlePieces#GrandPuzzlePiece_MOP": "0xebFF4b706ebB7aa1a6695dbcd67dF2642C803c7C",
+  "DeployPuzzlePieces#GrandPuzzlePiece_MSR": "0xdB2164F3e8A842C27580FD0188c04ae150318F36",
+  "DeployPuzzlePieces#GrandPuzzlePiece_MUTA": "0xB45a50C8744C9a1b683360CE7e60e11e31D127aC"
 }

@@ -32,13 +32,14 @@ contract GrandPuzzlePiece is ERC721, Ownable {
     event WhitelistUpdated();
 
 
-    constructor(string memory _name, string memory _symbol, uint _mint_fee, address[] memory _whitelisted_addresses) ERC721(_name, _symbol) Ownable(msg.sender)
+    constructor(string memory _name, string memory _symbol, uint _mint_fee, address[] memory _whitelisted_addresses, string memory _base_uri) ERC721(_name, _symbol) Ownable(msg.sender)
     {
         status = MissionStatus.DISABLED;
         mint_fee = _mint_fee;
         for (uint i = 0; i < _whitelisted_addresses.length; i++) {
             _whitelisted[_whitelisted_addresses[i]] = true;
         }
+        setBaseURI(_base_uri);
         emit MintFeeUpdated(_mint_fee);
         emit StatusUpdated(status);
         emit WhitelistUpdated();
@@ -62,7 +63,7 @@ contract GrandPuzzlePiece is ERC721, Ownable {
      * @dev Sets the base URI for the token metadata.
      * @param _baseTokenURI The new base URI for the token metadata.
      */
-    function setBaseURI(string calldata _baseTokenURI) external onlyOwner {
+    function setBaseURI(string memory _baseTokenURI) public onlyOwner {
         baseTokenURI = _baseTokenURI;
         emit BaseURIUpdated(baseTokenURI);
     }
