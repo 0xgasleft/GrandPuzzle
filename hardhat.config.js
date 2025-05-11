@@ -1,6 +1,7 @@
 require("@nomicfoundation/hardhat-toolbox");
 require('dotenv').config({ path: __dirname + '/.env' });
-require("./tasks/puzzle_piece");
+//require("./tasks/puzzle_piece");
+require("./tasks/puzzle_certificate");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -14,6 +15,11 @@ module.exports = {
     enabled: false
   },
   networks: {
+    hardhat: {
+      forking: {
+        url: process.env.MONAD_TESTNET_RPC
+      }
+    },
     monadtestnet: {
       url: process.env.MONAD_TESTNET_RPC,
       accounts: [process.env.SOURCE_PK]

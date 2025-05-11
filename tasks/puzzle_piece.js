@@ -300,9 +300,13 @@ task("transfer-ownership", "Transfers ownership of the contract")
     const [deployer] = await hre.ethers.getSigners();
 
     const ctrts = {
-      OmniNads: "0x137bf4DcF9b562345001D2b4F3e0F2ed0070Ef4D",
-      Monadverse: "0x8794498a491A74b6f2Dbf73E5F5542A054c89653",
-      CULT: "0xBB347c44c7cf878e12D6fD559AaA302Af4e8fb3D"
+      GrandPuzzlePiece_LAO: "0x7f7DfeAc59ED41c1c261B6A331Fc3fCA604f4f07",
+      GrandPuzzlePiece_LGO: "0xB3aa50F3E543E0A848b4d983F6Fa9F2155b957CE",
+      GrandPuzzlePiece_MBB: "0x2A4aef44845777BF9ebef9F4B4BBB264d9585339",
+      GrandPuzzlePiece_MDO: "0x76C249a8C363C8bA6Ae9d27372c1709A66e668F7",
+      GrandPuzzlePiece_MPD: "0xcB8a648074C1Fea3FFC26dfb10BbCec5E7d3Db1e",
+      GrandPuzzlePiece_RRB: "0xD0036D99457d3Ce3a8a2f8416ECF69Ca3bE92Bb7",
+      GrandPuzzlePiece_SHRO: "0x0c0c4dCE614e36335255bF54Dcc9279b19BA06B6"
     }
 
     const newOwner = "0x7B61605BfE32c36D5df2aEc37707b3fA2f12b8B0";
