@@ -51,7 +51,7 @@ task("test-with-fork", "Test certificate minting")
     const [deployer] = await hre.ethers.getSigners();
 
     const GrandPuzzleCertificate = await hre.ethers.getContractFactory("GrandPuzzleCertificate");
-
+    
     console.log(`🔐Using signer: ${deployer.address}`);
 
     console.log(`📍Deploying GrandPuzzleCertificate..`);

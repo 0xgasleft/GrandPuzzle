@@ -3,7 +3,6 @@ const { ethers } = require("hardhat");
 
 
 const REQUIRED_PIECES = [
-
     "0x32c25465e9f4b198163F474942007AFcE9ceeff9",
     "0xdB2164F3e8A842C27580FD0188c04ae150318F36",
     "0xDbD9C74F496281E4bb30AB257ba735073F808E7a",

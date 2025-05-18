@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: envio-indexer
+networks:
+- id: 10143
+  start_block: 0
+  contracts:
+  - name: GrandPuzzlePiece
+    address:
+    - 0x32c25465e9f4b198163F474942007AFcE9ceeff9
+    handler: ./src/EventHandlers.js
+    events:
+    - event: Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
+    - event: ApprovalForAll(address indexed owner, address indexed operator, bool approved)
+    - event: BaseURIUpdated(string indexed _baseTokenURI)
+    - event: FinishedMission(address indexed _recipient, string indexed _mission_symbol)
+    - event: MintFeeUpdated(uint256 indexed _new_fee)
+    - event: OwnershipTransferred(address indexed previousOwner, address indexed newOwner)
+    - event: StatusUpdated(uint8 indexed _status)
+    - event: Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
+    - event: WhitelistUpdated()
+unordered_multichain_mode: true

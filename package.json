@@ -1,13 +1,22 @@
 {
-  "name": "hardhat-project",
+  "name": "envio-indexer",
+  "version": "0.1.0",
+  "scripts": {
+    "codegen": "envio codegen",
+    "dev": "envio dev",
+    "test": "pnpm mocha",
+    "start": "node generated/src/Index.bs.js"
+  },
   "devDependencies": {
-    "@nomicfoundation/hardhat-ignition-ethers": "^0.15.11",
-    "hardhat": "^2.22.19"
+    "mocha": "10.2.0"
   },
   "dependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "@openzeppelin/contracts": "^5.2.0",
-    "dotenv": "^16.5.0",
-    "viem": "^2.27.3"
+    "envio": "2.20.0"
+  },
+  "optionalDependencies": {
+    "generated": "./generated"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
