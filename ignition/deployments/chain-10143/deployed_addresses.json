@@ -17,5 +17,6 @@
   "DeployPuzzlePieces#GrandPuzzlePiece_MDO": "0x76C249a8C363C8bA6Ae9d27372c1709A66e668F7",
   "DeployPuzzlePieces#GrandPuzzlePiece_MPD": "0xcB8a648074C1Fea3FFC26dfb10BbCec5E7d3Db1e",
   "DeployPuzzlePieces#GrandPuzzlePiece_RRB": "0xD0036D99457d3Ce3a8a2f8416ECF69Ca3bE92Bb7",
-  "DeployPuzzlePieces#GrandPuzzlePiece_SHRO": "0x0c0c4dCE614e36335255bF54Dcc9279b19BA06B6"
+  "DeployPuzzlePieces#GrandPuzzlePiece_SHRO": "0x0c0c4dCE614e36335255bF54Dcc9279b19BA06B6",
+  "DeployPuzzleCertificate#GrandPuzzleCertificate": "0xA987f09F4d62421a6ceb9d5328a0f132D83948a7"
 }

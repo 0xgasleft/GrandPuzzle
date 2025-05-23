@@ -1,7 +1,8 @@
 require("@nomicfoundation/hardhat-toolbox");
 require('dotenv').config({ path: __dirname + '/.env' });
-//require("./tasks/puzzle_piece");
-require("./tasks/puzzle_certificate");
+//require("./tasks/theme1/puzzle_piece");
+//require("./tasks/theme1/puzzle_certificate");
+require("./tasks/theme2/puzzle_all");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
