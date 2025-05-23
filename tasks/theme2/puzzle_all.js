@@ -294,6 +294,69 @@ task("all", "Try everything related to theme2")
     console.log(`After batch burn: Minter: ${minter5.address} has completed burn: ${await shardBurner.hasCompletedBurn(minter5.address)}`);
     console.log(`After batch burn: Minter: ${minter6.address} has completed burn: ${await shardBurner.hasCompletedBurn(minter6.address)}`);
     
+    console.log(`📍Minting certificate ..`)
+
+    const CERTIFICATE_NAME = "CERTIFICATE";
+    const CERTIFICATE_SYMBOL = "CERT";
+    const MINT_FEE = ethers.parseEther("5");
+
+    const PuzzleCertificate = await hre.ethers.getContractFactory("PuzzleCertificate");
+    const puzzleCertificate = await PuzzleCertificate.deploy(CERTIFICATE_NAME, CERTIFICATE_SYMBOL, MINT_FEE, await shardBurner.getAddress());
+    await puzzleCertificate.waitForDeployment();
+    console.log(`✅ PuzzleCertificate deployed to: ${await puzzleCertificate.getAddress()}`);
+
+    console.log(`Minting certificate while not enabled..`);
+    try {
+      const tx = await puzzleCertificate.connect(minter1).mint(minter1.address, {value: MINT_FEE});
+      await tx.wait();
+    }
+    catch (e) {
+      console.log("Failed to mint with disabled certificate, as expected");
+      console.log(`Error: ${e}`);
+    }
+
+    console.log(`Enabling certificate minting...`);
+    const enabletx = await puzzleCertificate.setStatus(1);
+    await enabletx.wait();
+    console.log(`✅ Certificate minting enabled!`);
+
+    console.log(`Minting certificate with low fee..`);
+    try {
+      const tx = await puzzleCertificate.connect(minter1).mint(minter1.address, {value: ethers.parseEther("1")});
+      await tx.wait();
+    }
+    catch (e) {
+      console.log("Failed to mint with low fee, as expected");
+      console.log(`Error: ${e}`);
+    }
+
+    console.log(`Minting certificate with minter who didn't burn..`);
+    try
+    {
+      const tx = await puzzleCertificate.connect(minter1).mint(minter1.address, {value: MINT_FEE});
+      await tx.wait();
+    }
+    catch (e) {
+      console.log("Failed to mint with minter who didn't burn, as expected");
+      console.log(`Error: ${e}`);
+    }
+
+    console.log(`Minting certificate correctly..`);
+    const certminttx = await puzzleCertificate.connect(minter4).mint(minter4.address, {value: MINT_FEE});
+    await certminttx.wait();
+    console.log(`✅ Certificate minted!`);
+
+
+    console.log(`Minting certificate with minter that already minted..`);
+    try
+    {
+      const tx = await puzzleCertificate.connect(minter4).mint(minter4.address, {value: MINT_FEE});
+      await tx.wait();
+    }
+    catch (e) {
+      console.log("Failed to mint with minter that already minted, as expected");
+      console.log(`Error: ${e}`);
+    }
 
     console.log("End of all tasks.");
       
