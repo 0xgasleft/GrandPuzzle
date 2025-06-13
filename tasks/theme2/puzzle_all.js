@@ -362,3 +362,28 @@ task("all", "Try everything related to theme2")
       
     
   });
+
+
+task("transfer-ownership", "Transfers ownership of the contract")
+  .setAction(async (_, hre) => {
+
+    const [deployer] = await hre.ethers.getSigners();
+
+    const ctrts = {
+      PuzzleShard_CRYSTAL:  "0x45819cAeA88b31380Adb17720abE847C6e25D7CC",
+      PuzzleShard_FOLKS:  "0x9Fce275715e62Dd7Ae9d4Bf7E43Ed26d257EddCD",
+      PuzzleShard_IZIF:  "0xaCF6d8F0A5D7eE4220Fa2C59D6b50fb03EF42cfe",
+      PuzzleShard_MEOW:  "0xF83fcF5c082E1dC4D0eCB330C42f21f653B94dff",
+      PuzzleShard_RBC:  "0xcB3b4dD515CbB327Ccd340030606267f593C2ed0",
+      PuzzleShard_STND:  "0xDf5C6683bf7525e9210Ab7a9D0c207541e10AC9C",
+   }
+
+    const newOwner = "0x7B61605BfE32c36D5df2aEc37707b3fA2f12b8B0";
+
+    for(const ctrt of Object.keys(ctrts)) {
+      const contract = await hre.ethers.getContractAt("PuzzleShard", ctrts[ctrt], deployer);
+      console.log(`Transferring ownership of ${ctrt} to: ${newOwner}`);
+      const tx = await contract.transferOwnership(newOwner);
+      await tx.wait();
+    }
+  });

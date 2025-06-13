@@ -1,15 +1,13 @@
 const { buildModule } = require("@nomicfoundation/hardhat-ignition/modules");
 
 
-const REQUIRED_SHARDS = [
-
-];
+const REQUIRED_SHARDS = [];
 
 
 
 module.exports = buildModule("DeployShardBurner", (m) => {
 
-    const deployment = m.contract("ShardBurner", [REQUIRED_SHARDS]);
+    const deployment = m.contract("ShardBurner");
   
     return deployment;
 });
